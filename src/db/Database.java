@@ -1,37 +1,54 @@
 package db;
 
-import db.exeption.EntityNotFoundException;
-
+import db.exception.EntityNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Database {
-    private static final ArrayList<Entity> entities = new ArrayList<>();
+public final class Database {
+    private static final List<Entity> entities = new ArrayList<>();
     private static int nextId = 1;
 
     private Database() {}
 
     public static void add(Entity e) {
-        e.id = nextId++;
-        entities.add(e);
+        Entity copy = e.copy();
+        copy.id = nextId++;
+        entities.add(copy);
     }
 
     public static Entity get(int id) throws EntityNotFoundException {
         for (Entity e : entities) {
             if (e.id == id) {
-                return e;
+                return e.copy();
             }
         }
         throw new EntityNotFoundException(id);
     }
 
     public static void delete(int id) throws EntityNotFoundException {
-        Entity e = get(id);
-        entities.remove(e);
+        Entity toRemove = null;
+        for (Entity e : entities) {
+            if (e.id == id) {
+                toRemove = e;
+                break;
+            }
+        }
+
+        if (toRemove == null) {
+            throw new EntityNotFoundException(id);
+        }
+
+        entities.remove(toRemove);
     }
 
     public static void update(Entity e) throws EntityNotFoundException {
-        Entity existing = get(e.id);
-        int index = entities.indexOf(existing);
-        entities.set(index, e);
+        Entity copy = e.copy();
+        for (int i = 0; i < entities.size(); i++) {
+            if (entities.get(i).id == copy.id) {
+                entities.set(i, copy);
+                return;
+            }
+        }
+        throw new EntityNotFoundException(copy.id);
     }
 }
