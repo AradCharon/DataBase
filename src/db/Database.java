@@ -6,7 +6,7 @@ import java.util.List;
 
 public final class Database {
     private static final List<Entity> entities = new ArrayList<>();
-    private static int nextId = 1;
+    private static int nextId = 0;
 
     private Database() {}
 
