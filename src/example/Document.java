@@ -26,7 +26,7 @@ public class Document extends Entity implements Trackable {
     public int getEntityCode() {
         return 15;
     }
-    
+
     @Override
     public void setCreationDate(Date date) {
         this.creationDate = date;
