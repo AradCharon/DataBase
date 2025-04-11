@@ -62,7 +62,6 @@ public class TaskService {
     }
 
     public static void deleteTask(int taskId) throws EntityNotFoundException {
-        // First delete all steps
         for (Entity entity : Database.getAll(2)) {
             Step step = (Step) entity;
             if (step.taskRef == taskId) {
