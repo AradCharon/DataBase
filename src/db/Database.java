@@ -86,4 +86,13 @@ public final class Database {
             validator.validate(entity);
         }
     }
+    public static ArrayList<Entity> getAll(int entityCode) {
+        ArrayList<Entity> result = new ArrayList<>();
+        for (Entity e : entities) {
+            if (e.getEntityCode() == entityCode) {
+                result.add(e.copy());
+            }
+        }
+        return result;
+    }
 }

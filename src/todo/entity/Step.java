@@ -22,6 +22,6 @@ public class Step extends Entity {
 
     @Override
     public int getEntityCode() {
-        return 2;
+        return 2; // Unique code for Step
     }
 }

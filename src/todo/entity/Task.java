@@ -14,7 +14,6 @@ public class Task extends Entity implements Trackable {
     public Date dueDate;
     public Status status;
 
-    // Constructors, getters and setters
     @Override
     public Task copy() {
         Task copy = new Task();
@@ -34,22 +33,11 @@ public class Task extends Entity implements Trackable {
     }
 
     @Override
-    public void setCreationDate(Date date) {
-        this.creationDate = date;
-    }
-
+    public void setCreationDate(Date date) { this.creationDate = date; }
     @Override
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
+    public Date getCreationDate() { return creationDate; }
     @Override
-    public void setLastModificationDate(Date date) {
-        this.lastModificationDate = date;
-    }
-
+    public void setLastModificationDate(Date date) { this.lastModificationDate = date; }
     @Override
-    public Date getLastModificationDate() {
-        return lastModificationDate;
-    }
+    public Date getLastModificationDate() { return lastModificationDate; }
 }
