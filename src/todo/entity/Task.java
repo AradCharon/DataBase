@@ -13,7 +13,11 @@ public class Task extends Entity implements Trackable {
     public String description;
     public Date dueDate;
     public Status status;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> five
     @Override
     public Task copy() {
         Task copy = new Task();
@@ -32,6 +36,7 @@ public class Task extends Entity implements Trackable {
         return 1;
     }
 
+<<<<<<< HEAD
     // Trackable interface implementation
     @Override
     public void setCreationDate(Date date) {
@@ -52,4 +57,14 @@ public class Task extends Entity implements Trackable {
     public Date getLastModificationDate() {
         return lastModificationDate;
     }
+=======
+    @Override
+    public void setCreationDate(Date date) { this.creationDate = date; }
+    @Override
+    public Date getCreationDate() { return creationDate; }
+    @Override
+    public void setLastModificationDate(Date date) { this.lastModificationDate = date; }
+    @Override
+    public Date getLastModificationDate() { return lastModificationDate; }
+>>>>>>> five
 }
